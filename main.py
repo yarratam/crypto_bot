@@ -118,7 +118,7 @@ def run_bot():
     updater.dispatcher.add_handler(CallbackQueryHandler(button_handler))
     updater.dispatcher.add_handler(MessageHandler(filters=Filters.text, callback=text_handler))
     updater.start_polling()
-    updater.idle()
+    # updater.idle()
 
 
 run_bot()
