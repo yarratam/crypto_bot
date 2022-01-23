@@ -26,12 +26,12 @@ def get_start_markup():
 
 def method_choose_handler(update: Update, key):
     markup_values = (
-        ('Зашифровать', f'choose_{key}_crypt'),
-        ('Расшифровать', f'choose_{key}_decrypt')
+        ('Зашифровать', 'choose_{key}_crypt'.format(key=key)),
+        ('Расшифровать', 'choose_{key}_decrypt'.format(key=key))
     )
     buttons = [InlineKeyboardButton(c, callback_data=cb) for c, cb in markup_values]
     markup = InlineKeyboardMarkup([buttons])
-    update.callback_query.message.reply_text(f'Выбран {CRYPT_TITLES[key]}', reply_markup=markup)
+    update.callback_query.message.reply_text('Выбран {name}'.format(name=CRYPT_TITLES[key]), reply_markup=markup)
 
 
 def choose_crypt_or_decrypt(update: Update, key, method):
